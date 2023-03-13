@@ -5,6 +5,8 @@ Top Movies Data Exploration Project
 Skills used: Creating Tables, CASE, AND/OR Statements, COUNT statements, WHERE statements
 */
 
+---------------------------------------------------------------------------------------------------------------------------
+
 CREATE TABLE topmovies(
    Rank        INTEGER,
    Title       TEXT,
@@ -217,43 +219,58 @@ INSERT INTO topmovies(Rank,Title,Studio,Worldwide,Domestic,DomesticPct,Overseas,
 
 INSERT INTO topmovies(Rank,Title,Studio,Worldwide,Domestic,DomesticPct,Overseas,OverseasPct,Year) VALUES (100,'Tangled','BV',591.80,200.80,0.34,391.00,0.66,2010);
 
+---------------------------------------------------------------------------------------------------------------------------
+
 SELECT*
 FROM topmovies;
 
+---------------------------------------------------------------------------------------------------------------------------
 /* Finding Average, Maximum, and Minimum Profit Overall*/
+
 SELECT ROUND(AVG(Worldwide)) as Avg_Worldwide, Max(Worldwide) as Max_Worldwide, Min(Worldwide) as Min_Worldwide
 FROM topmovies;
 
+---------------------------------------------------------------------------------------------------------------------------
 /* Finding Movie that Made the Highest Profit Worldwide in Dataset*/
+
 SELECT*
 FROM topmovies
 WHERE Worldwide=2788;
 
+---------------------------------------------------------------------------------------------------------------------------
 /* Finding Movie that Made the Lowest Profit Worldwide in Dataset*/
+
 SELECT*
 FROM topmovies
 WHERE Worldwide=591.8;
 
+---------------------------------------------------------------------------------------------------------------------------
 /* Finding Average, Maximum, and Minimum Profit Per Studio*/
+
 SELECT studio, ROUND(AVG(Worldwide)) as Avg_Worldwide, Max(Worldwide) as Max_Worldwide, Min(Worldwide) as Min_Worldwide
 FROM topmovies
 GROUP BY studio
 ORDER BY Avg_Worldwide DESC;
 
+---------------------------------------------------------------------------------------------------------------------------
 /* Finding Average, Maximum, and Minimum Profit Per Year*/
+
 SELECT Year, ROUND(AVG(Worldwide)) as Avg_Worldwide, Max(Worldwide) as Max_Worldwide, Min(Worldwide) as Min_Worldwide
 FROM topmovies
 GROUP BY Year
 ORDER BY Year;
 
+---------------------------------------------------------------------------------------------------------------------------
 /* Selecing Studios That Had a Miniumum Above 650*/
+
 SELECT studio, Min(Worldwide) as Min_Worldwide
 FROM topmovies
 GROUP BY studio
 HAVING Min_Worldwide>650;
 
-
+---------------------------------------------------------------------------------------------------------------------------
 /* Selecing Total Count of Movies for Different Target Ranges*/
+
 SELECT COUNT(*) as Total_Number_of_Movies,
     CASE
         WHEN worldwide>863 THEN "Above Average"
@@ -264,7 +281,9 @@ FROM topmovies
 GROUP BY "Profit Target"
 ;
 
+---------------------------------------------------------------------------------------------------------------------------
 /* Selecing Total Number of Movies WB Released After 2000*/
+
 SELECT Count(*) AS Total_Movies_Released_After_2000_For_WB
 FROM topmovies
 WHERE Year>2000 AND Studio="WB"
