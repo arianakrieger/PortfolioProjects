@@ -1,5 +1,10 @@
 /* Source: http://www.boxofficemojo.com/alltime/world/ */
 
+/*
+Top Movies Data Exploration Project
+Skills used: Creating Tables, CASE, AND/OR Statements, COUNT statements, WHERE statements
+*/
+
 CREATE TABLE topmovies(
    Rank        INTEGER,
    Title       TEXT,
@@ -215,7 +220,7 @@ INSERT INTO topmovies(Rank,Title,Studio,Worldwide,Domestic,DomesticPct,Overseas,
 SELECT*
 FROM topmovies;
 
-/* Finding Avg, Maximum, and Minimum Profit Overall*/
+/* Finding Average, Maximum, and Minimum Profit Overall*/
 SELECT ROUND(AVG(Worldwide)) as Avg_Worldwide, Max(Worldwide) as Max_Worldwide, Min(Worldwide) as Min_Worldwide
 FROM topmovies;
 
