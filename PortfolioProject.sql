@@ -83,7 +83,7 @@ ORDER BY 1,2
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-/* Lookinjg at Total Population vs Vaccinations */
+/* Looking at Total Population vs Vaccinations */
 
 SELECT dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations, 
 SUM(CAST(vac.new_vaccinations AS int)) OVER (PARTITION by dea.location ORDER BY dea.location, dea.date) AS RollingPeopleVaccinated
@@ -140,7 +140,7 @@ SELECT*,(RollingPeopleVaccinated/Population)*100
 FROM #PercentagePopulationVaccinated
 
 ---------------------------------------------------------------------------------------------------------------------------
-/* Creating View to Store Data for later visualizations */
+/* Creating View to Store Data for Later Visualizations */
 
 CREATE View PercentagePopulationVaccinated AS
 SELECT dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations, 
