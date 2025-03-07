@@ -1,0 +1,61 @@
+# Calculator Project
+# This program provides a simple calculator with options for addition, subtraction,
+# multiplication, and division. The user selects the operation and enters two numbers, 
+# and the program calculates and displays the result. After each calculation, the user
+# is asked if they want to perform another calculation. If they choose 'no', the program exits.
+
+# Define function for addition
+def add(x, y):
+    return x + y
+
+# Define function for subtraction
+def subtract(x, y):
+    return x - y
+
+# Define function for multiplication
+def multiply(x, y):
+    return x * y
+
+# Define function for division
+def divide(x, y):
+    return x / y
+
+# Display menu options for the user
+print("Enter 'A' for Addition.")
+print("Enter 'S' for Subtraction.")
+print("Enter 'M' for Multiplication.")
+print("Enter 'D' for Division.")
+
+# Loop for performing multiple calculations
+while True:
+    # Get the user's choice of operation
+    choice = input('Enter Choice (A,S,M,D): ')
+
+    if choice.upper() in ('A', 'ADD', 'Addition', 'S', 'SUBTRACT', 'Subtraction', 'M', 'Multiply', 'Multiplication', 'D', 'Divide', 'Division'):
+        
+        # Ask the user for two numbers
+        num1 = float(input('Enter first number: '))
+        num2 = float(input('Enter second number: '))
+
+        if choice.upper() in ('A', 'ADD', 'Addition'):
+            print('Result:', num1, ' + ', num2, ' = ', add(num1, num2))
+
+        elif choice.upper() in ('S', 'SUBTRACT', 'Subtraction'):
+            print('Result:', num1, ' - ', num2, ' = ', subtract(num1, num2))
+
+        elif choice.upper() in ('M', 'Multiply', 'Multiplication'):
+            print('Result:', num1, ' * ', num2, ' = ', multiply(num1, num2))
+
+        elif choice.upper() in ('D', 'Divide', 'Division'):
+            print('Result:', num1, ' / ', num2, ' = ', divide(num1, num2))
+
+    else:
+        # If the user entered an invalid choice, prompt them again
+        print("Please input a correct choice")
+
+    # Ask the user if they want to perform another calculation
+    next_calculation = input("Want to do another calculation? (yes/no): ")
+
+    # If the user chooses 'no', break the loop and exit the program
+    if next_calculation.lower() in ('no', 'n', 'nope'):
+        break
