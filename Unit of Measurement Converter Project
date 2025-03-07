@@ -1,0 +1,59 @@
+# The program converts a measurement between inches, feet, and yards based on user input.
+# It prompts the user to enter the starting unit of measurement and the target unit of measurement.
+# The program then converts the input value to the desired unit and displays the result.
+
+# Get the starting unit of measurement from the user
+convert_from = input("Enter Starting Unit of Measurement(inches, feet, yards): ")
+
+# Get the target unit of measurement from the user
+convert_to = input("Enter Unit of Measurement to Convert to(inches, feet, yards): ")
+
+# Check if the starting unit is inches
+if convert_from.lower() in ["inches", "in", "inch"]:
+    # Ask the user to enter the measurement in inches
+    number_of_inches = int(input("Enter Starting Measurement in Inches: "))
+    
+    # Convert inches to feet
+    if convert_to.lower() in ["feet", "ft", "foot"]:
+        print("Result: " + str(number_of_inches) + " Inches = " + str(round(number_of_inches / 12, 2)) + " Feet")
+    # Convert inches to yards
+    elif convert_to.lower() in ["yard", "yd", "yards", "yds"]:
+        print("Result: " + str(number_of_inches) + " Inches = " + str(round(number_of_inches / 36, 2)) + " Yards")
+    else:
+        # If the user entered an invalid unit, prompt for a valid one
+        print("Please Enter either Inches, Feet, or Yards.")
+
+# Check if the starting unit is feet
+elif convert_from.lower() in ["feet", "ft", "foot"]:
+    # Ask the user to enter the measurement in feet
+    number_of_feet = input("Enter Starting Measurement in Feet: ")
+    
+    # Convert feet to inches
+    if convert_to.lower() in ["inches", "in", "inch"]:
+        print("Result: " + str(number_of_feet) + " Feet = " + str(round(int(number_of_feet) * 12)) + " Inches")
+    # Convert feet to yards
+    elif convert_to.lower() in ["yard", "yd", "yards", "yds"]:
+        print("Result: " + str(number_of_feet) + " Feet = " + str(round(int(number_of_feet) / 3, 2)) + " Yards")
+    else:
+        # If the user entered an invalid unit, prompt for a valid one
+        print("Please Enter either Inches, Feet, or Yards.")
+
+# Check if the starting unit is yards
+elif convert_from.lower() in ["yard", "yd", "yards", "yds"]:
+    # Ask the user to enter the measurement in yards
+    number_of_yards = input("Enter Starting Measurement in Yards: ")
+    
+    # Convert yards to inches
+    if convert_to.lower() in ["inches", "in", "inch"]:
+        print("Result: " + str(number_of_yards) + " Yards = " + str(round(int(number_of_yards) * 36)) + " Inches")
+    # Convert yards to feet
+    elif convert_to.lower() in ["feet", "ft", "foot"]:
+        print("Result: " + str(number_of_yards) + " Yards = " + str(round(int(number_of_yards) * 3)) + " Feet")
+    else:
+        # If the user entered an invalid unit, prompt for a valid one
+        print("Please Enter either Inches, Feet, or Yards.")
+
+# If the user entered an invalid starting unit, prompt for a valid one
+else:
+    print("Please Enter either Inches, Feet, or Yards.")
+
